@@ -6,14 +6,40 @@
     z-index: -1;
 }
 
+.login{
+    margin-left: 16em;
+    margin-right: 0em;
+    margin-top: 0em;
+    z-index: -1;
+}
+
+.signup{
+    z-index: -1;
+    margin-left: 16em;
+}
+
 @media only screen and (max-width: 638px) {
     .content {
         display: flex;
         justify-content: center;
-        margin-left: 0em;
+        margin-left: 4em;
+        margin-right: 4em;
         margin-top: 1em;
-        z-index: -2;
+        z-index: -1;
     }
+
+    .login{
+        margin-left: 0em;
+        margin-right: 0em;
+        margin-top: 0em;
+        z-index: -1;
+    }
+
+    .signup{
+        margin-left: 0em;
+        z-index: -1;
+    }
+
   }
   
 
