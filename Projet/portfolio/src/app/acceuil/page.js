@@ -1,8 +1,11 @@
 import React from 'react'
 
+
 function Acceuil() {
   return (
-    <div>Acceuil page</div>
+    <div>
+         <div>Acceuil page</div>
+    </div>
   )
 }
 
