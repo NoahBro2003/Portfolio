@@ -1,9 +1,10 @@
 import React from 'react'
+import '../rules.css'
 
 
 function Acceuil() {
   return (
-    <div>
+    <div className="content">
          <div>Acceuil page</div>
     </div>
   )

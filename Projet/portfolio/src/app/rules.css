@@ -1,0 +1,16 @@
+.content{
+    display: flex;
+    margin-left: 20em;
+    margin-top: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    .content {
+        display: flex;
+        justify-content: center;
+        margin-left: 0em;
+        margin-top: 1em;
+    }
+  }
+  
+
