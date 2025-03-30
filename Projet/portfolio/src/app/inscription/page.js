@@ -1,5 +1,6 @@
 import React from "react";
 import "../rules.css";
+import Link from "next/link";
 
 function SignIn() {
   return (
@@ -150,12 +151,12 @@ function SignIn() {
               </button>
 
               <div class="mt-6 text-center ">
-                <a
-                  href="#"
+                <Link
+                  href="/login"
                   class="text-sm text-blue-500 hover:underline dark:text-blue-400"
                 >
                   Already have an account?
-                </a>
+                </Link>
               </div>
             </div>
           </form>
