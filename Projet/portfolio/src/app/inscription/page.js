@@ -1,8 +1,11 @@
 import React from 'react'
+import '../rules.css'
 
 function SignIn() {
   return (
-    <div>Sign in page</div>
+    <div className="content">
+      <div className="text-3xl">Sign-in page</div>
+    </div>
   )
 }
 

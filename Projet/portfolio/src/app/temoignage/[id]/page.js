@@ -2,7 +2,9 @@ import React from 'react'
 
 function TemoignageId() {
   return (
-    <div>Specific temoignage page</div>
+    <div className="content">
+      <div>Specific temoignage page</div>
+    </div>
   )
 }
 

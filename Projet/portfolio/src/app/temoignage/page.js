@@ -1,8 +1,11 @@
 import React from 'react'
+import '../rules.css'
 
 function Temoignage() {
   return (
-    <div>Temoignage page</div>
+    <div className="content">
+      <div className="text-3xl">Temoignage page</div>
+    </div>
   )
 }
 
