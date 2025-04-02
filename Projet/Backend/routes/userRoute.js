@@ -15,7 +15,7 @@ const route = Router()
 route
     .post('/', upload.single('photo'), addUser)
     //Proteger toutes les routes ci-dessous
-    .all("*",verifierToken) 
+    .all("*", verifierToken) 
     .put('/:id', updateUser)
     .put('/:id/photo', upload.single('photo'), updateUserPhoto)
     .get('/:id', userById)

@@ -5,9 +5,7 @@ const initialUserState ={
     users: []
 }
 
-export const userReducer = null
-
-/*(state = initialUserState, action)=>{
+export const userReducer = (state = initialUserState, action)=>{
     const {type, payload} = action
     switch (type){
         case SET_USER:
@@ -15,4 +13,4 @@ export const userReducer = null
         case SET_USERS:
             return {...state, users: payload}
     }
-}*/
+}
