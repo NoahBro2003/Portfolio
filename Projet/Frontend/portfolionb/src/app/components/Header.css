@@ -1,6 +1,6 @@
 .back{
     position: fixed;
-    z-index: 0;
+    z-index: 99;
     display: flex;
     justify-content: right;
     width: 325px;
@@ -9,7 +9,7 @@
 }
 
 .toggleNav{
-    z-index: 1;
+    z-index: 100;
     position: fixed;
     left: 1em;
     bottom: 7em;

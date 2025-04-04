@@ -33,12 +33,12 @@ function SignIn() {
                 type: SET_AUTH_USER,
                 payload:
                 {
-                    authUser: result.user,
+                    data: result.users,
                     token: result.token   
                 }
             })
         
-        router.push('/users')
+        router.push('/users/:id')
         }
         
     } catch (error){
@@ -48,9 +48,9 @@ function SignIn() {
   
 
     return (
-    <div className="login">
+<div className="login">
     <section className="bg-white dark:bg-gray-900">
-  <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+    <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
       <form className="w-full max-w-md">
           <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt=""/>
 
@@ -88,8 +88,8 @@ function SignIn() {
           </div>
       </form>
   </div>
-</section>
-  </div>
+    </section>
+</div>
   )
 }
 
