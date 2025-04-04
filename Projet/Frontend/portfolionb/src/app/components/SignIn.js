@@ -33,10 +33,8 @@ function SignIn() {
                 type: SET_AUTH_USER,
                 payload:
                 {
-                    
-                    data: result.user,
-                    token: result.token
-                    
+                    authUser: result.user,
+                    token: result.token   
                 }
             })
         
