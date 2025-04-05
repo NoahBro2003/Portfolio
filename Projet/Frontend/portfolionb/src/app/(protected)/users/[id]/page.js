@@ -44,7 +44,6 @@ function Profile() {
   }
  }
 
-
  const deleteAccount = async () =>{
     if (!id) return;  
   
