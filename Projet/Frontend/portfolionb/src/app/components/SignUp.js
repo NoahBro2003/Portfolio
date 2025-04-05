@@ -3,31 +3,51 @@ import React from 'react'
 import Link from "next/link";
 import { addUser } from '@/api/services/userService';
 import { useRouter } from 'next/navigation';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 function SignUp() {
     const nomRef = useRef()
     const prenomRef = useRef();
     const emailRef = useRef();
     const mdpRef = useRef();
-    const photoRef = useRef();
 
+    const [errors, setErrors] = useState({})
 
     const router = useRouter();
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
 
-    const formData = new FormData();
+    const payload = {
+      nom: nomRef.current.value,
+      prenom: prenomRef.current.value,
+      email: emailRef.current.value,
+      mot_de_passe: mdpRef.current.value
+    }
 
-    formData.append('nom', nomRef.current.value)
-    formData.append('prenom', prenomRef.current.value)
-    formData.append('email', emailRef.current.value)
-    formData.append('mot_de_passe', mdpRef.current.value)
-    formData.append('photo', photoRef.current.value)
+    const errors = {}
+    const nomRegex = /^[A-Za-zÀ-ÿ\s-]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if(!nomRegex.test(nomRef.current.value) || !nomRegex.test(prenomRef.current.value)){
+      errors.nameViolation = "Le nom et le prenom doivent seulement contenir des caractères."
+    }
+
+    if(!emailRegex.test(emailRef.current.value)){
+      errors.emailViolation = "Le courriel doit être un courriel."
+    }
+
+    if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/.test(mdpRef.current.value)){
+      errors.weakPassword = "Le mot de passe doit contenir 8 caractères, une majusucle, une minuscule, un chiffre et un caractère spéciale."
+    }
+
+    if(Object.keys(errors).length > 0){
+      setErrors(errors);
+      return;
+  }
 
     try{
-        const result = await addUser(formData)
+        const result = await addUser(payload)
         console.log(result)
     
 
@@ -35,14 +55,13 @@ function SignUp() {
         prenomRef.current.value = ''
         emailRef.current.value = ''
         mdpRef.current.value = ''
-        photoRef.current.value = ''
 
         router.push('/login')
 
 
         
     } catch (error){
-        console.error("Error: ", error)
+      setErrors({existingEmail: 'Le courriel existe déjà!'})
     }
   }
 
@@ -118,30 +137,9 @@ function SignUp() {
                         required
                       />
                     </div>
-
-                    <label
-                      for="dropzone-file"
-                      className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 text-gray-300 dark:text-gray-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                        />
-                      </svg>
-        
-                      <h2 className="mx-3 text-gray-400">Profile Photo</h2>
-        
-                      <input id="dropzone-file" type="file" className="hidden" ref={photoRef} />
-                    </label>
+                    <div>
+                    {errors.nameViolation && <p className="mt2 text-sm text-red-600 dark:text-red-400">{errors.nameViolation}</p>}
+                    </div>
         
                     <div className="relative flex items-center mt-6">
                       <span className="absolute">
@@ -169,6 +167,9 @@ function SignUp() {
                         required
                       />
                     </div>
+                    <div>
+                    {errors.emailViolation && <p className="mt2 text-sm text-red-600 dark:text-red-400">{errors.emailViolation}</p>}
+                    </div>
         
                     <div className="relative flex items-center mt-4">
                       <span className="absolute">
@@ -195,6 +196,14 @@ function SignUp() {
                         ref={mdpRef}
                         required
                       />
+                    </div>
+
+                    <div>
+                    {errors.weakPassword && <p className="mt2 text-sm text-red-600 dark:text-red-400">{errors.weakPassword}</p>}
+                    </div>
+
+                    <div>
+                    {errors.existingEmail && <p className="mt2 text-sm text-red-600 dark:text-red-400">{errors.existingEmail}</p>}
                     </div>
         
         
