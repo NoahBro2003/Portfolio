@@ -69,9 +69,8 @@ export const updateUser = async (req, res) => {
     }
     const { id } = req.params
     const infoUser = req.body
-    const { photo, mot_de_passe, ...infoSansPhoto } = infoUser
     try {
-        const user = await User.update(infoSansPhoto, { where: { id } })
+        const user = await User.update(infoUser, { where: { id } })
         res.status(200).json({ message: `User no ${id} updated`, data: user })
     } catch (error) {
         res.status(400).json({ message: error.message })

@@ -17,13 +17,12 @@ const userRules = [
         .matches(/[a-z]/).withMessage('au moins une lettre minuscule')
         .matches(/[A-Z]/).withMessage('au moins une lettre majuscule')
         .matches(/[!@#$%^&*(),.?":{}|<>]/).withMessage('au moins un caractere special'),
-    param('id').optional().isInt({ min: 1 }).withMessage("l'id doit etre un entier positif"),
-    check('photo').optional().custom((value, { req }) => {
-        if (imageExt.includes(req.file.mimetype)) {
-            return true
-        }
-        return false
-    })
 ]
 
-export default userRules
+const updateUserRules = [
+    body('nom').notEmpty().isAlpha().withMessage("le nom n'est pas conforme"),
+    body('prenom').notEmpty().isAlpha().withMessage("le prenom n'est pas conforme"),
+    body('email').notEmpty().isEmail().withMessage("ceci n'est pas un email"),
+]
+
+export {userRules, updateUserRules}
