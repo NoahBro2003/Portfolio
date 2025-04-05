@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import '../../../rules.css'
-import { useParams, useRouter} from 'next/navigation'
-import { getUser } from '@/api/services/userService'
+import { useParams} from 'next/navigation'
+import { getUser, deleteUser } from '@/api/services/userService'
 
 import { useDispatch } from 'react-redux'
 import { LOGOUT_USER } from '@/stores/actions'
@@ -44,6 +44,18 @@ function Profile() {
   }
  }
 
+
+ const deleteAccount = async () =>{
+    if (!id) return;  
+  
+    try{
+      const data = await deleteUser(id);
+      dispatch({type: LOGOUT_USER})
+   } catch (error) {
+    console.error("Erreur de suppression de compte : ", error)
+   }
+ }
+
  if (loading) {
   return <div>Loading user profile...</div>
  }
@@ -64,6 +76,11 @@ function Profile() {
     onClick={logout}
     className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition focus:ring-red-300 cursor-pointer">
       Logout
+    </button>
+    <button
+    onClick={deleteAccount}
+    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition focus:ring-red-300 cursor-pointer">
+      Delete account
     </button>
     <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
         <dl className="sm:divide-y sm:divide-gray-200">
