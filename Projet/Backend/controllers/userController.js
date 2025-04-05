@@ -77,25 +77,6 @@ export const updateUser = async (req, res) => {
         res.status(400).json({ message: error.message })
     }
 }
-
-// Mise a jour de la photo
-
-export const updateUserPhoto = async (req, res) => {
-    const { id } = req.params
-    const image = req.file
-    const imagePath = image?.path?.split('\\').join('/')
-    const fullPath = image ? req.protocol + '://' + req.get('host') + '/' + imagePath : null
-    try {
-        if (fullPath) {
-            const result = await User.update({ photo: fullPath }, { where: { id } })
-            res.status(201).json({ message: "Photo de l'utilisateur mise a jour" })
-            return
-        }
-    } catch (error) {
-        res.status(404).json({ message: "Photo de l'utilisateur pas mise a jour" })
-    }
-}
-
 //Suppression d'un utilisateur
 
 export const deleteUser = async (req, res) => {

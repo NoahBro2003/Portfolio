@@ -50,27 +50,27 @@ function SignUp() {
 
   return (
     <div>
-         <section class="bg-white dark:bg-gray-900">
-                <div class="container flex items-center justify-center min-h-screen px-6 mx-auto">
-                  <form class="w-full max-w-md">
-                    <div class="flex justify-center mx-auto">
+         <section className="bg-white dark:bg-gray-900">
+                <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+                  <form className="w-full max-w-md">
+                    <div className="flex justify-center mx-auto">
                       <img
-                        class="w-auto h-7 sm:h-8"
+                        className="w-auto h-7 sm:h-8"
                         src="https://merakiui.com/images/logo.svg"
                         alt=""
                       />
                     </div>
-                    <div class="flex items-center justify-center mt-6">
-                      <a class="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
+                    <div className="flex items-center justify-center mt-6">
+                      <a className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
                         s'inscrire
                       </a>
                     </div>
         
-                    <div class="relative flex items-center mt-8">
-                      <span class="absolute">
+                    <div className="relative flex items-center mt-8">
+                      <span className="absolute">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+                          className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -86,17 +86,17 @@ function SignUp() {
         
                       <input
                         type="text"
-                        class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         placeholder="Nom"
                         ref={nomRef}
-                        
+                        required
                       />
                     </div>
-                    <div class="relative flex items-center mt-8">
-                      <span class="absolute">
+                    <div className="relative flex items-center mt-8">
+                      <span className="absolute">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+                          className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -112,19 +112,20 @@ function SignUp() {
         
                       <input
                         type="text"
-                        class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         placeholder="Prénom"
                         ref={prenomRef}
+                        required
                       />
                     </div>
 
                     <label
                       for="dropzone-file"
-                      class="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900"
+                      className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="w-6 h-6 text-gray-300 dark:text-gray-500"
+                        className="w-6 h-6 text-gray-300 dark:text-gray-500"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -137,16 +138,16 @@ function SignUp() {
                         />
                       </svg>
         
-                      <h2 class="mx-3 text-gray-400">Profile Photo</h2>
+                      <h2 className="mx-3 text-gray-400">Profile Photo</h2>
         
-                      <input id="dropzone-file" type="file" class="hidden" ref={photoRef} />
+                      <input id="dropzone-file" type="file" className="hidden" ref={photoRef} />
                     </label>
         
-                    <div class="relative flex items-center mt-6">
-                      <span class="absolute">
+                    <div className="relative flex items-center mt-6">
+                      <span className="absolute">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+                          className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -162,17 +163,18 @@ function SignUp() {
         
                       <input
                         type="email"
-                        class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         placeholder="Email"
                         ref={emailRef}
+                        required
                       />
                     </div>
         
-                    <div class="relative flex items-center mt-4">
-                      <span class="absolute">
+                    <div className="relative flex items-center mt-4">
+                      <span className="absolute">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+                          className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -188,22 +190,23 @@ function SignUp() {
         
                       <input
                         type="password"
-                        class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         placeholder="Mot de passe"
                         ref={mdpRef}
+                        required
                       />
                     </div>
         
         
-                    <div class="mt-6">
-                      <button onClick={handleSubmit} class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                    <div className="mt-6">
+                      <button onClick={handleSubmit} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                         S'inscrire
                       </button>
         
-                      <div class="mt-6 text-center ">
+                      <div className="mt-6 text-center ">
                         <Link
                           href="/login"
-                          class="text-sm text-blue-500 hover:underline dark:text-blue-400"
+                          className="text-sm text-blue-500 hover:underline dark:text-blue-400"
                         >
                           Déjà un compte?
                         </Link>

@@ -2,7 +2,7 @@
 import { Router } from "express";
 
 //Importer les controllers
-import { addUser, deleteUser, updateUser, updateUserPhoto, userById, userList } from "../controllers/userController.js";
+import { addUser, deleteUser, updateUser, userById, userList } from "../controllers/userController.js";
 
 //Importer la fonction pour charger les images/fichiers
 import upload from "../helpers/fileLoader.js";
@@ -13,11 +13,10 @@ import userRules from "../validations/userValidation.js";
 const route = Router()
 
 route
-    .post('/', upload.single('photo'), addUser)
+    .post('/', userRules, addUser)
     //Proteger toutes les routes ci-dessous
     .all("*", verifierToken) 
-    .put('/:id', updateUser)
-    .put('/:id/photo', upload.single('photo'), updateUserPhoto)
+    .put('/:id', userRules, updateUser)
     .get('/:id', userById)
     // .all("*",autoriser(["admin"])) 
     .get('/', userList)
