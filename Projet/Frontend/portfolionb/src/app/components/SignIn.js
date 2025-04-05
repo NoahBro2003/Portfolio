@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { login } from "@/api/services/loginService";
@@ -13,6 +13,8 @@ function SignIn() {
   const router = useRouter();
   const dispatch = useDispatch();
 
+  const [errors, setErrors] = useState({})
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -20,6 +22,19 @@ function SignIn() {
       email: emailRef.current.value,
       mot_de_passe: mdpRef.current.value,
     };
+
+    const errors = {};
+    const emailValue = emailRef.current.value
+    const mdpValue = mdpRef.current.value
+
+    if(emailValue.length <= 0 || mdpValue.length <= 0){
+        errors.empty = "Les champs doivent être remplis.";
+    }
+
+    if(Object.keys(errors).length > 0){
+        setErrors(errors);
+        return;
+    }
 
     try {
       console.log(payload);
@@ -38,7 +53,7 @@ function SignIn() {
         router.push(`/users/${result.data.id}`);
       }
     } catch (error) {
-      console.error("Error: ", error);
+      setErrors({api: 'Le courriel ou le mot de passe entré est incorrecte.'})
     }
   };
 
@@ -110,7 +125,10 @@ function SignIn() {
                 required
               />
             </div>
-
+            <div>
+            {errors.empty && <p className="mt2 text-sm text-red-600 dark:text-red-400">{errors.empty}</p>}
+            {errors.api && <p className="mt2 text-sm text-red-600 dark:text-red-400">{errors.api}</p>}
+            </div>
             <div className="mt-6">
               <button
                 onClick={handleSubmit}
