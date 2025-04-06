@@ -1,10 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { getUser } from "@/api/services/userService";
-import { deleteTemoignage } from "@/api/services/temoignageService";
+import {
+  deleteTemoignage,
+  updateTemoignage,
+} from "@/api/services/temoignageService";
 
 function TemoignageContainer({ temoignage }) {
   const [user, setUser] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [updatedTemoignage, setUpdatedTemoignage] = useState(temoignage);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -19,15 +24,40 @@ function TemoignageContainer({ temoignage }) {
     fetchUser();
   }, [temoignage.UserId]);
 
- const handleDelete = async () =>{
-    console.log(temoignage)
-    try{
-        await deleteTemoignage(temoignage.id);
+  const handleDelete = async () => {
+    console.log(temoignage);
+    try {
+      await deleteTemoignage(temoignage.id);
       window.location.reload();
-   } catch (error) {
-    console.error("Erreur de suppression de temoignage : ", error)
-   }
- }
+    } catch (error) {
+      console.error("Erreur de suppression de temoignage : ", error);
+    }
+  };
+
+  const handleEditClick = () => {
+    setIsEditing(!isEditing);
+  };
+
+  const handleSave = async () => {
+
+    try{
+      console.log(updatedTemoignage)
+      const data = await updateTemoignage(updatedTemoignage.id, updatedTemoignage)
+      console.log(data);
+    } catch (error) {
+      console.error("Erreur d'enregistrement de temoignage : ", error) 
+    }
+    setIsEditing(false);
+    window.location.reload();
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUpdatedTemoignage((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   return (
     <div className="relative">
@@ -36,6 +66,7 @@ function TemoignageContainer({ temoignage }) {
           <button
             className="p-2 bg-blue-500 text-white rounded hover:bg-blue-400 focus:outline-none"
             title="Edit"
+            onClick={handleEditClick}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,12 +104,33 @@ function TemoignageContainer({ temoignage }) {
             </svg>
           </button>
         </div>
-        <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-2xl dark:text-white">
-          {temoignage.titre}
-        </h1>
-        <p className="leading-loose text-gray-500 dark:text-gray-400">
-          {temoignage.description}
-        </p>
+
+        {isEditing ? (
+          <div>
+            <input
+              type="text"
+              name="titre"
+              value={updatedTemoignage.titre}
+              onChange={handleChange}
+              className="w-full p-2 mb-4 border rounded"
+            />
+            <textarea
+              name="description"
+              value={updatedTemoignage.description}
+              onChange={handleChange}
+              className="w-full p-2 mb-4 border rounded"
+            />
+          </div>
+        ) : (
+          <div>
+            <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-2xl dark:text-white">
+              {temoignage.titre}
+            </h1>
+            <p className="leading-loose text-gray-500 dark:text-gray-400">
+              {temoignage.description}
+            </p>
+          </div>
+        )}
 
         <div className="flex items-center mt-8 -mx-2">
           <div className="mx-2">
@@ -87,6 +139,17 @@ function TemoignageContainer({ temoignage }) {
             </h1>
           </div>
         </div>
+
+        {isEditing && (
+          <div className="mt-4">
+            <button
+              onClick={handleSave}
+              className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-400"
+            >
+              Save
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

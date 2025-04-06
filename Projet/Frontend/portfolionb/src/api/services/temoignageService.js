@@ -2,26 +2,26 @@ import http from "../axiosAPI"
 
 
 export const getAllTemoignage = async (params = {}) =>{
-    const users = await http.get('/temoignage', {params: {...params}})
-    return users.data.data
+    const temoignages = await http.get('/temoignage', {params: {...params}})
+    return temoignages.data.data
 }
 
 export const getTemoignage = async id =>{
-    const user = await http.get(`/temoignage/${id}`)
-    return user.data.data
+    const temoignage = await http.get(`/temoignage/${id}`)
+    return temoignage.data.data
 }
 
-export const updateTemoignage = async (id, user) =>{
-    const updatedUser = await http.put(`/temoignage/${id}`, user)
-    return updatedUser.data
+export const updateTemoignage = async (id, temoignage) =>{
+    const updatedTemoignage = await http.put(`/temoignage/${id}`, temoignage)
+    return updatedTemoignage.data
 }
 
 export const deleteTemoignage = async id =>{
-    const deletedUser = await http.delete(`/temoignage/${id}`)
-    return deletedUser.data
+    const deletedTemoignage = await http.delete(`/temoignage/${id}`)
+    return deletedTemoignage.data
 }
 
 export const addTemoignage = async user =>{
-    const addedUser = await http.post(`/temoignage`, user)
-    return addedUser.data
+    const addedTemoignage = await http.post(`/temoignage`, user)
+    return addedTemoignage.data
 }

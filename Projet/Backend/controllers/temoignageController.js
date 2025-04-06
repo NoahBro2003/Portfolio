@@ -19,6 +19,22 @@ export const addTemoignage = async (req, res) => {
 
 }
 
+export const updateTemoignage = async (req, res) => {
+    //Recuperation des resultats de la validation 
+     const errors = validationResult(req)
+     if (!errors.isEmpty()) {
+         return res.status(400).json({ errors: errors.array() });
+    }
+    const { id } = req.params
+    const infoTemoignage = req.body
+    try {
+        const temoignage = await Temoignage.update(infoTemoignage, { where: { id } })
+        res.status(200).json({ message: `Temoignage no ${id} updated`, data: temoignage })
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
 export const TemoignageList = async (req, res) => {
     try {
         const Temoignages = await Temoignage.findAll()

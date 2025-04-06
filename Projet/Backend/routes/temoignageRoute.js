@@ -3,7 +3,7 @@ import { Router } from "express";
 
 
 //Importer les controllers
-import { addTemoignage, deleteTemoignage, TemoignageList, TemoignageById, TemoignageUsers } from "../controllers/temoignageController.js";
+import { addTemoignage, deleteTemoignage, TemoignageList, TemoignageById, TemoignageUsers, updateTemoignage } from "../controllers/temoignageController.js";
 import { verifierToken } from "../authentification/verifierToken.js";
 
 // Creation d"une instance de Router
@@ -14,6 +14,7 @@ temoignageRoute
     .get('/', TemoignageList)
     .post('/', addTemoignage)
     .delete('/:id', deleteTemoignage)
+    .put('/:id', updateTemoignage)
     .get('/:id', TemoignageById)
     .get('/:id/users', TemoignageUsers)
 
