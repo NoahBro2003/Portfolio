@@ -6,6 +6,7 @@ import { getAllUsers } from "@/api/services/userService";
 import '../../rules.css'
 import { useDispatch } from "react-redux";
 import { setUser } from "@/stores/action_creator";
+import Link from "next/link";
 
 function Temoignage() {
   const [temoignages, setTemoignages] = useState([])
@@ -66,7 +67,6 @@ function Temoignage() {
             incidunt ex placeat modi magni quia error alias, adipisci rem
             similique, at omnis eligendi optio eos harum.
           </p>
-
           <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
                 {combinedData.map((temoignage) => (
                   <div key={temoignage.id}>
@@ -74,6 +74,9 @@ function Temoignage() {
                   </div>
                 ))}
           </section>
+          <Link href="/temoignage/post" className="inline-block mt-10 px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+            Publié un temoignage
+          </Link>
         </div>
       </section>
     </div>
