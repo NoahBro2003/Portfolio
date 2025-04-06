@@ -1,25 +1,78 @@
 "use client"
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TemoignageContainer from "@/app/components/TemoignageContainer";
+import { getAllTemoignage } from "@/api/services/temoignageService";
+import { getAllUsers } from "@/api/services/userService";
 import '../../rules.css'
+import { useDispatch } from "react-redux";
+import { setUser } from "@/stores/action_creator";
 
 function Temoignage() {
+  const [temoignages, setTemoignages] = useState([])
+  const [users, setUsers] = useState([])
+  const [combinedData, setCombinedData] = useState([])
+
+  const dispatch = useDispatch();
+
+  useEffect(() =>{
+    const fetchAll = async () =>{
+      try{
+        const [temoignageResponse, userResponse] = await Promise.all([
+          getAllTemoignage(),
+          getAllUsers(),
+        ]);
+
+        console.log(userResponse.users)
+        console.log(temoignageResponse)
+
+        const userData = userResponse.users
+        const temoignageData = temoignageResponse
+        console.log("Users : ", userData)
+        console.log("Temoignages : ", temoignageData)
+
+        const mergedData = temoignageData.map((temoignage) => {
+          const user = userData.find(
+            (user) => user.id === temoignage.UserId
+          );
+          return{
+            ...temoignage,
+            UserId : user ? user.id : null,
+          }
+        })
+
+        setTemoignages(temoignageData)
+        setUsers(userData)
+        setCombinedData(mergedData)
+
+      } catch (error) {
+        console.error("Error fetching data : ", error)
+      }
+    }
+    fetchAll();
+  }, []);
+
+
+
   return (
-    <div className="content">
-      <section class="bg-white dark:bg-gray-900">
-        <div class="container px-6 py-10 mx-auto">
-          <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
-            Tem<span class="text-blue-500 ">oign</span>age
+    <div classNameName="content">
+      <section className="bg-white dark:bg-gray-900">
+        <div className="container px-6 py-10 mx-auto">
+          <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+            Tem<span className="text-blue-500 ">oign</span>age
           </h1>
 
-          <p class="max-w-2xl mx-auto mt-6 text-center text-gray-500 dark:text-gray-300">
+          <p className="max-w-2xl mx-auto mt-6 text-center text-gray-500 dark:text-gray-300">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
             incidunt ex placeat modi magni quia error alias, adipisci rem
             similique, at omnis eligendi optio eos harum.
           </p>
 
-          <section class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 lg:grid-cols-2 xl:grid-cols-3">
-            <TemoignageContainer/>
+          <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+                {combinedData.map((temoignage) => (
+                  <div key={temoignage.id}>
+                    <TemoignageContainer temoignage={temoignage}/>
+                  </div>
+                ))}
           </section>
         </div>
       </section>
