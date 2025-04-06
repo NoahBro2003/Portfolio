@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { addTemoignage } from "@/api/services/temoignageService";
@@ -6,47 +6,49 @@ import { useSelector } from "react-redux";
 import { useRef, useState } from "react";
 
 function AddTemoignageForm() {
-        const titreRef = useRef()
-        const descriptionRef = useRef();
-        const userId = useSelector((state) => state.auth?.data?.id)
-        const [errors, setErrors] = useState({})
-    
-        const router = useRouter();
-    
-      const handleSubmit = async (e) =>{
-        e.preventDefault();
-    
-        const payload = {
-          titre: titreRef.current.value,
-          description: descriptionRef.current.value,
-          UserId: userId
-        }
-    
-        if(Object.keys(errors).length > 0){
-          setErrors(errors);
-          return;
-      }
-    
-        try{
-            const result = await addTemoignage(payload)
-            console.log(result)
-        
-    
-            titreRef.current.value = ''
-            descriptionRef.current.value = ''
+  const titreRef = useRef();
+  const descriptionRef = useRef();
+  const userId = useSelector((state) => state.auth?.data?.id);
+  const [errors, setErrors] = useState({});
 
-    
-            router.push('/temoignage')
-    
-    
-            
-        } catch (error){
-          console.log("Erreur de publication de temoignage : ", error)
-        }
-      }
-    
+  const router = useRouter();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
+    const payload = {
+      titre: titreRef.current.value,
+      description: descriptionRef.current.value,
+      UserId: userId,
+    };
+
+    const errors = {};
+
+    if (!titreRef.current.value) {
+      errors.emptyTitre = "Le titre doit être rempli.";
+    }
+
+    if (!descriptionRef.current.value) {
+      errors.emptyDescription = "La description doit être rempli.";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+      return;
+    }
+
+    try {
+      const result = await addTemoignage(payload);
+      console.log(result);
+
+      titreRef.current.value = "";
+      descriptionRef.current.value = "";
+
+      router.push("/temoignage");
+    } catch (error) {
+      console.log("Erreur de publication de temoignage : ", error);
+    }
+  };
 
   return (
     <div>
@@ -92,6 +94,16 @@ function AddTemoignageForm() {
                 required
               />
             </div>
+            <div>
+              <div>
+                {errors.emptyTitre && (
+                  <p className="mt2 text-sm text-red-600 dark:text-red-400">
+                    {errors.emptyTitre}
+                  </p>
+                )}
+              </div>
+            </div>
+
             <div className="relative flex mt-8">
               <span className="absolute">
                 <svg
@@ -118,8 +130,20 @@ function AddTemoignageForm() {
                 required
               />
             </div>
+            <div>
+              <div>
+                {errors.emptyDescription && (
+                  <p className="mt2 text-sm text-red-600 dark:text-red-400">
+                    {errors.emptyDescription}
+                  </p>
+                )}
+              </div>
+            </div>
             <div className="mt-6">
-              <button onClick={handleSubmit} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+              <button
+                onClick={handleSubmit}
+                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+              >
                 Post
               </button>
             </div>
