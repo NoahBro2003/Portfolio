@@ -45,7 +45,7 @@ function SignIn() {
         dispatch({
           type: SET_AUTH_USER,
           payload: {
-            authUser: result.data,
+            data: result.data,
             token: result.token,
           },
         });
