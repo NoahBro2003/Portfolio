@@ -1,4 +1,4 @@
-import Acceuil from "./acceuil/page";
+import Acceuil from "./(protected)/acceuil/page";
 
 export default function Home() {
   return (
