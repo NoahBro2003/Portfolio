@@ -130,7 +130,7 @@ function Profile() {
             <dl className="space-y-6">
               <div className="sm:grid sm:grid-cols-3 sm:gap-4">
                 <dt className="text-sm font-medium text-gray-400">Full name</dt>
-                <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2 flex items-center gap-2 flex-wrap">
+                <dd className="mt-1 text-sm text-gray-100 sm:mt-0 sm:col-span-2 max-w-full overflow-hidden">
                   {editingField === "name" ? (
                     <>
                       <input
@@ -151,12 +151,12 @@ function Profile() {
                         💾
                       </button>
                       {errors.nomViolation && (
-                        <p className="w-full text-sm text-red-500">
+                        <p className="text-xs text-red-400 leading-tight max-w-sm break-words">
                           {errors.nomViolation}
                         </p>
                       )}
                       {errors.prenomViolation && (
-                        <p className="w-full text-sm text-red-500">
+                        <p className="text-xs text-red-400 leading-tight max-w-sm break-words">
                           {errors.prenomViolation}
                         </p>
                       )}
@@ -178,7 +178,7 @@ function Profile() {
                 <dt className="text-sm font-medium text-gray-400">
                   Email address
                 </dt>
-                <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2 flex items-center gap-2 flex-wrap">
+                <dd className="mt-1 text-sm text-gray-100 sm:mt-0 sm:col-span-2 max-w-full overflow-hidden">
                   {editingField === "email" ? (
                     <>
                       <input
@@ -192,7 +192,7 @@ function Profile() {
                         💾
                       </button>
                       {errors.emailViolation && (
-                        <p className="w-full text-sm text-red-500">
+                        <p className="text-xs text-red-400 leading-tight max-w-sm break-words">
                           {errors.emailViolation}
                         </p>
                       )}
@@ -207,23 +207,23 @@ function Profile() {
                         ✏️
                       </button>
                       {errors.global && (
-                        <p className="w-full text-sm text-red-500">{errors.global}</p>
+                        <p className="text-xs text-red-400 mt-1 leading-tight">{errors.global}</p>
                       )}
                     </>
                   )}
                 </dd>
               </div>
             </dl>
-            <div className="flex justify-center space-x-3 px-6 py-4 border-b border-gray-700">
+            <div className="flex flex-col sm:flex-row sm:justify-center sm:space-x-3 space-y-2 sm:space-y-0 px-6 py-4 border-b border-gray-700">
             <button
               onClick={logout}
-              className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition focus:ring-2 focus:ring-red-400 cursor-pointer"
+              className="px-3 py-1.5 bg-red-600 text-white text-sm rounded-md hover:bg-red-700 transition focus:ring-2 focus:ring-red-400 cursor-pointer"
             >
               Logout
             </button>
           <button
             onClick={deleteAccount}
-            className="px-4 py-2 bg-red-700 text-white rounded-md hover:bg-red-800 transition focus:ring-red-500 cursor-pointer"
+            className="px-3 py-1.5 bg-red-700 text-white text-sm rounded-md hover:bg-red-800 transition focus:ring-red-500 cursor-pointer"
           >
             Delete account
           </button>
