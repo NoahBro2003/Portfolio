@@ -70,7 +70,7 @@ function SignUp() {
   return (
     <div>
          <section className="bg-white dark:bg-gray-900">
-                <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+                <div className="container flex items-center justify-center mt-16">
                   <form className="w-full max-w-md">
                     <div className="flex justify-center mx-auto">
                       <img

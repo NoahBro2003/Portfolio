@@ -60,7 +60,7 @@ function SignIn() {
   return (
     <div className="login">
       <section className="bg-white dark:bg-gray-900">
-        <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+        <div className="container flex items-center justify-center mt-16">
           <form className="w-full max-w-md">
             <img
               className="w-auto h-7 sm:h-8"
