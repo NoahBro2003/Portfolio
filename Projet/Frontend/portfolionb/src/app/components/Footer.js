@@ -4,7 +4,7 @@ import './Footer.css'
 
 function Footer() {
   return (
-    <footer className="foot fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow-sm md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+    <footer className="foot md:bottom-0 md:left-0 md:z-20 w-full p-4 bg-white border-t border-gray-200 shadow-sm md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © 2025{" "}
