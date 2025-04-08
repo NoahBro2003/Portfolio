@@ -1,5 +1,6 @@
 import React from "react";
 import "../../rules.css";
+import Image from "next/image";
 
 function Details() {
   return (
@@ -11,7 +12,7 @@ function Details() {
 
         <article className="mb-16">
           <img
-            src="projetbib.png"
+            src="projetapp.png"
             alt="Project Title"
             className="w-full rounded-2xl mb-6 object-cover shadow-md"
           />
