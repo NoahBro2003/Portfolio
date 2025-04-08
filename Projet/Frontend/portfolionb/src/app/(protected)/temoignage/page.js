@@ -63,9 +63,7 @@ function Temoignage() {
           </h1>
 
           <p className="max-w-2xl mx-auto mt-6 text-center text-gray-500 dark:text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-            incidunt ex placeat modi magni quia error alias, adipisci rem
-            similique, at omnis eligendi optio eos harum.
+            Bienvenu à la page des témoignages! Ici vous pouvez laissez vos témoin du portfolio pour moi (Noah) à consulter plus tard pour en tiré des suggestions et amener des modifications à mon portfolio. Simplement appuyé sur "Publié un témoignage", remplissez le formulaire et cliqué sur publié.
           </p>
           <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
                 {combinedData.map((temoignage) => (
@@ -75,7 +73,7 @@ function Temoignage() {
                 ))}
           </section>
           <Link href="/temoignage/post" className="inline-block mt-10 px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-            Publié un temoignage
+            Publié un témoignage
           </Link>
         </div>
       </section>
