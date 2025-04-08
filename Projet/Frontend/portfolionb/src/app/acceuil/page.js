@@ -1,65 +1,53 @@
 import React from "react";
 import "../rules.css";
-
 function Acceuil() {
   return (
     <div className="content">
-      <section class="bg-white dark:bg-gray-900">
-        <div class="container px-6 py-10 mx-auto">
-          <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
-            Portfolio - Acceuil
-          </h1>
+  <section className="flex flex-col items-center justify-center text-center py-24 px-4">
+  <img
+    src="guy.jpg"
+    alt="Profile picture"
+    className="w-30 h-44  sm:w-50 sm:h-64 rounded-full mb-6 shadow-lg border-4 border-white"
+  />
 
-          <p class="mt-4 text-center text-gray-500 dark:text-gray-300">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
-            quam voluptatibus
-          </p>
+    <h2 className="text-4xl font-extrabold mb-4">Bonjour! Je suis Noah 👋</h2>
+    <p className="text-sm max-w-2xl mb-6 font-bold hover:text-white text-gray-300">
+      Je suis un programmeur dans le programme de Programmation Informatique à LaCité collégiale. À présent, je suis en mesure de terminer ma dernière étape à l'école et j'envisage gradué à la fin du moi d'Avril 2025.
+    </p>
 
-          <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-            <div>
-              <img
-                class="object-cover w-full rounded-lg h-96 "
-                src="https://images.unsplash.com/photo-1621111848501-8d3634f82336?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1565&q=80"
-                alt=""
-              />
-              <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
-                Best website collections
-              </h2>
-              <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase dark:text-blue-400 ">
-                Website
-              </p>
-            </div>
+    <p className="text-sm max-w-2xl mb-1 hover:text-white text-gray-300 font-bold">
+      Dans ce site, vous retrouverez une page pour votre profil d'où vous pouvez manipuler vos détails comme vous le voulez;
+    </p>
+    <p className="text-sm max-w-2xl mb-1 hover:text-white text-gray-300 font-bold">
+    Une page de témoignage pour laissez vos remarque, vos recommendations et vos intérêts par rapport à mon Portfolio;
+    </p>
+    <p className="text-sm max-w-2xl mb-1 hover:text-white text-gray-300 font-bold">
+    Une page de projets démontrant ainsi les projets que j'ai participer dedans pendant mon parcours à l'école;
+    </p>
+    <p className="text-sm max-w-2xl mb-1 hover:text-white text-gray-300 font-bold">
+      Et cette page d'acceuil!
+    </p>
 
-            <div>
-              <img
-                class="object-cover w-full rounded-lg h-96 "
-                src="https://images.unsplash.com/photo-1621609764180-2ca554a9d6f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-                alt=""
-              />
-              <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
-                Block of Ui kit collections
-              </h2>
-              <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase dark:text-blue-400 ">
-                Ui kit
-              </p>
-            </div>
+    <p className="text-sm max-w-2xl mb-6 text-yellow-300 font-bold">
+    Donc n'hésiter pas et faite comme chez vous, explorez 😊! 
+    </p>
+    <button
+      onclick="scrollToContact()"
+      className="bg-indigo-600 text-white px-6 py-2 rounded-xl hover:bg-indigo-700 transition"
+    >
+      Get in Touch
+    </button>
+  </section>
 
-            <div>
-              <img
-                class="object-cover w-full rounded-lg h-96 "
-                src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                alt=""
-              />
-              <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
-                Ton’s of mobile mockup
-              </h2>
-              <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase dark:text-blue-400 ">
-                Mockups
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+  <section id="projects" className="max-w-6xl mx-auto px-4 py-16">
+    <h3 className="text-2xl font-bold">Projects</h3>
+    <div className="p-1">
+    <a href="https://github.com/noahbros/ProjetUA3Dev." className="text-gray-600 text-sm hover:text-blue-300">Application de gestion d’étudiant.</a>
+    </div>
+    <div className="p-1">
+    <a href="https://github.com/noahbros/ProjetWebPt2" className="text-gray-600 text-sm hover:text-blue-300">Prototype de site web – Bibliothèque virtuelle.</a>
+    </div>
+  </section>
     </div>
   );
 }
