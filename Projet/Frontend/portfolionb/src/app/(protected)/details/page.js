@@ -1,86 +1,221 @@
-import React from 'react'
-import '../../rules.css'
+import React from "react";
+import "../../rules.css";
 
 function Details() {
   return (
     <div className="content">
-<section class="py-20 relative">
-    <h1 class="font-manrope font-medium text-4xl mb-10 max-md:text-center">Portfolio - Projects</h1>
-        <div class="w-full max-w-2xl lg:max-w-7xl px-6 lg:px-8 mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="flex items-center flex-col gap-8 w-full group">
-                    <div class="block">
-                        <img class="rounded-3xl object-cover" src="https://pagedone.io/asset/uploads/1707480017.png" alt="Project Achievements of Sketch"/>
-                    </div>
-                    <div class="flex items-center justify-between max-w-[406px] lg:max-w-full w-full lg:px-0">
-                        <div class="block">
-                            <h4 class="text-2xl font-manrope font-semibold text-gray-900 mb-1">Sketch</h4>
-                            <p class="font-medium text-lg text-gray-400">Content Design,
-                                Marketing</p>
-                        </div>
-                        <button
-                            class=" border border-black py-2 px-3.5 rounded-full transition-all duration-300 group-hover:bg-black">
-                            <svg class="stroke-black transition-all duration-300 group-hover:stroke-white"
-                                xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16"
-                                fill="none">
-                                <path
-                                    d="M9.62553 4L13.6664 8.0409M13.6664 8.0409L9.62553 12.0818M13.6664 8.0409L1.6665 8.0409"
-                                    stroke="" strokeWidth="1.6" strokeLinecap="round" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="group flex items-center flex-col gap-8 w-full">
-                    <div class="block">
-                        <img class="rounded-3xl object-cover" src="https://pagedone.io/asset/uploads/1707480034.png" alt="Project Achievements of Figma"/>
-                    </div>
-                    <div class="flex items-center justify-between max-w-[406px] lg:max-w-full w-full lg:px-0">
-                        <div class="block">
-                            <h4 class="text-2xl font-manrope font-semibold text-gray-900 mb-1">Figma</h4>
-                            <p class="font-medium text-lg text-gray-400">User Interface Design
-                            </p>
-                        </div>
-                        <button
-                            class=" border border-black py-2 px-3.5 rounded-full transition-all duration-300 group-hover:bg-black">
-                            <svg class="stroke-black transition-all duration-300 group-hover:stroke-white"
-                                xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16"
-                                fill="none">
-                                <path
-                                    d="M9.62553 4L13.6664 8.0409M13.6664 8.0409L9.62553 12.0818M13.6664 8.0409L1.6665 8.0409"
-                                    stroke="" strokeWidth="1.6" strokeLinecap="round" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div
-                    class="group flex items-center flex-col gap-8 w-full md:w-1/2 mx-auto md:col-span-2 lg:col-span-1 lg:w-full">
-                    <div class="block">
-                        <img class="rounded-3xl object-cover" src="https://pagedone.io/asset/uploads/1707480044.png" alt="Project Achievements of Frame.io"/>
-                    </div>
-                    <div class="flex items-center justify-between max-w-[406px] lg:max-w-full w-full lg:px-0">
-                        <div class="block">
-                            <h4 class="text-2xl font-manrope font-semibold text-gray-900 mb-1">Frame.io</h4>
-                            <p class="font-medium text-lg text-gray-400">User Interface Design
-                            </p>
-                        </div>
-                        <button
-                            class=" border border-black py-2 px-3.5 rounded-full transition-all duration-300 group-hover:bg-black">
-                            <svg class="stroke-black transition-all duration-300 group-hover:stroke-white"
-                                xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16"
-                                fill="none">
-                                <path
-                                    d="M9.62553 4L13.6664 8.0409M13.6664 8.0409L9.62553 12.0818M13.6664 8.0409L1.6665 8.0409"
-                                    stroke="" strokeWidth="1.6" strokeLinecap="round" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div className="px-4 py-20 max-w-4xl mx-auto">
+        <h1 className="text-4xl font-semibold mb-12 text-center">
+          Portfolio – Projects
+        </h1>
 
-    </section>
+        <article className="mb-16">
+          <img
+            src="projetbib.png"
+            alt="Project Title"
+            className="w-full rounded-2xl mb-6 object-cover shadow-md"
+          />
+          <h2 className="text-2xl font-bold mb-2 text-gray-200">
+            Application de gestion d’étudiant
+          </h2>
+          <div>
+            <h3 className="font-bold text-gray-400">Description</h3>
+            <p className="text-gray-500 text-sm mb-4">
+              Ce projet a été réalisé pour organiser les étudiants, les
+              programmes et leurs relations entre les deux. Un peu comme un
+              logiciel de recherche d’étudiants. Vous pouvez utiliser toutes les
+              opérations CRUD sur chaque objet tel que : « les étudiants » et «
+              les programmes ». Ce projet a été développé par trois personnes
+              différentes.
+            </p>
+          </div>
+          <div className="mb-6">
+            <h3 className="font-bold text-gray-400 mb-1">Mes tâches</h3>
+            <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
+              <li>
+                Créée la base de données et la liée à l’application à l’aide de
+                XAMPP et WPF.
+              </li>
+              <li>
+                Développé la section “programmes” de l’application :
+                <ul className="list-disc list-inside pl-5 space-y-1">
+                  <li>
+                    Permet aux utilisateurs de créer un programme avec certaines
+                    contraintes à respecter.
+                  </li>
+                  <li>
+                    Autoriser les utilisateurs à utiliser chaque opération CRUD
+                    sur l’objet « Programme ».
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <section className="mt-12">
+              <h3 className="text-2xl font-semibold mb-6 text-center text-gray-300">
+                Langages maîtrisés
+              </h3>
+              <div className="space-y-6">
+
+                <div className="flex items-center">
+                  <span className="text-gray-400 font-medium w-1/4">
+                    C#
+                  </span>
+                  <div className="w-3/4 bg-gray-300 rounded-full h-2.5">
+                    <div
+                      className="bg-green-600 h-2.5 rounded-full"
+                      style={{ width: "95%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="flex items-center">
+                  <span className="text-gray-400 font-medium w-1/4">WPF</span>
+                  <div className="w-3/4 bg-gray-300 rounded-full h-2.5">
+                    <div
+                      className="bg-violet-600 h-2.5 rounded-full"
+                      style={{ width: "75%" }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <hr className="border-gray-300" />
+        </article>
+
+        <article className="mb-16">
+          <img
+            src="projetbib.png"
+            alt="Project Title"
+            className="w-full rounded-2xl mb-6 object-cover shadow-md"
+          />
+          <h2 className="text-2xl font-bold mb-2 text-gray-300">
+            Prototype de site web – Bibliothèque virtuelle
+          </h2>
+          <div>
+            <h3 className="font-bold text-gray-400">Description</h3>
+            <p className="text-gray-500 text-sm mb-4">
+              Ce projet était un projet de deux, qui a été développé dans le bût
+              de créer une bibliothèque en ligne d’où les utilisateurs peuvent
+              commander des livres et les emprunter via site web.
+            </p>
+          </div>
+          <div className="mb-6">
+            <h3 className="font-bold text-gray-400 mb-1">Mes tâches</h3>
+            <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
+              <li>
+                Pris le rôle d’un développeur Web full-stack.
+                <ul className="list-disc list-inside pl-5 space-y-1">
+                  <li>
+                    Développer le “frontend” en utilisant Vue.js, Sass et HTML.
+                    <ul className="list-disc list-inside pl-5 space-y-1">
+                      <li>
+                        Concevoir la plupart des pages web présentes sur le
+                        site.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    Développer le “backend” en utilisant JavaScript, XAMPP et
+                    Postman.
+                    <ul className="list-disc list-inside pl-5 space-y-1">
+                      <li>
+                        {" "}
+                        Lié la base de données SQL au site web à l’aide de XAMPP
+                        et Postman.
+                      </li>
+                      <li>
+                        {" "}
+                        Développer la plupart des routes et relations entre la
+                        base de données et le site web via JavaScript et
+                        Postman.
+                      </li>
+                      <li>
+                        {" "}
+                        Créer le certificat pour sécuriser le site (HTTPS)
+                      </li>
+                      <li>
+                        {" "}
+                        Développer l’intégralité du système de gestion de compte
+                        avec l’utilisation de jetons web JSON.
+                        <ul className="list-disc list-inside pl-5 space-y-1">
+                          <li> Validation, vérification</li>
+                          <li> Permissions</li>
+                          <li> Reconnaissance de compte</li>
+                          <li> Cryptage des mots de passes</li>
+                          <li> Pages de connexion et d’inscription</li>
+                        </ul>
+                      </li>
+                      <li>
+                        Développé une grande majorité d’opérations CRUD pour
+                        chaque objet.
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <section className="mt-12">
+              <h3 className="text-2xl font-semibold mb-6 text-center text-gray-300">
+                Langages maîtrisés
+              </h3>
+              <div className="space-y-6">
+
+                <div className="flex items-center">
+                  <span className="text-gray-400 font-medium w-1/4">
+                    JavaScript
+                  </span>
+                  <div className="w-3/4 bg-gray-300 rounded-full h-2.5">
+                    <div
+                      className="bg-yellow-600 h-2.5 rounded-full"
+                      style={{ width: "90%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="flex items-center">
+                  <span className="text-gray-400 font-medium w-1/4">
+                    Vue.js
+                  </span>
+                  <div className="w-3/4 bg-gray-300 rounded-full h-2.5">
+                    <div
+                      className="bg-green-600 h-2.5 rounded-full"
+                      style={{ width: "50%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="flex items-center">
+                  <span className="text-gray-400 font-medium w-1/4">
+                    HTML & CSS
+                  </span>
+                  <div className="w-3/4 bg-gray-300 rounded-full h-2.5">
+                    <div
+                      className="bg-blue-600 h-2.5 rounded-full"
+                      style={{ width: "65%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="flex items-center">
+                  <span className="text-gray-400 font-medium w-1/4">SQL & Postman</span>
+                  <div className="w-3/4 bg-gray-300 rounded-full h-2.5">
+                    <div
+                      className="bg-red-600 h-2.5 rounded-full"
+                      style={{ width: "25%" }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <hr className="border-gray-300" />
+        </article>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Details
+export default Details;

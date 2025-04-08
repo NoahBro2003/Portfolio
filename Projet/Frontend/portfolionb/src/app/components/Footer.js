@@ -15,13 +15,13 @@ function Footer() {
       </span>
       <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-        <i class="fa fa-github"></i>
+        <i className="fa fa-github"></i>
           <a href="https://github.com/noahbros" className="hover:underline me-4 md:me-6">
             GitHub : noahbros
           </a>
         </li>
         <li>
-        <i class="fa fa-github"></i>
+        <i className="fa fa-github"></i>
           <a href="https://github.com/NoahBro2003" className="hover:underline me-4 md:me-6">
             GitHub : NoahBro2003
           </a>

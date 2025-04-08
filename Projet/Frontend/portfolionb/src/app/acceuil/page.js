@@ -31,12 +31,6 @@ function Acceuil() {
     <p className="text-sm max-w-2xl mb-6 text-yellow-300 font-bold">
     Donc n'hésiter pas et faite comme chez vous, explorez 😊! 
     </p>
-    <button
-      onclick="scrollToContact()"
-      className="bg-indigo-600 text-white px-6 py-2 rounded-xl hover:bg-indigo-700 transition"
-    >
-      Get in Touch
-    </button>
   </section>
 
   <section id="projects" className="max-w-6xl mx-auto px-4 py-16">
