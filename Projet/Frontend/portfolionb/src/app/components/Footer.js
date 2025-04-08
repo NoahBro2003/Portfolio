@@ -5,6 +5,7 @@ import './Footer.css'
 function Footer() {
   return (
     <footer className="foot fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow-sm md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © 2025{" "}
         <a href="https://flowbite.com/" className="hover:underline">
@@ -14,23 +15,21 @@ function Footer() {
       </span>
       <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-          <a href="#" className="hover:underline me-4 md:me-6">
-            About
+        <i class="fa fa-github"></i>
+          <a href="https://github.com/noahbros" className="hover:underline me-4 md:me-6">
+            GitHub : noahbros
           </a>
         </li>
         <li>
-          <a href="#" className="hover:underline me-4 md:me-6">
-            Privacy Policy
+        <i class="fa fa-github"></i>
+          <a href="https://github.com/NoahBro2003" className="hover:underline me-4 md:me-6">
+            GitHub : NoahBro2003
           </a>
-        </li>
+        </li> 
         <li>
-          <a href="#" className="hover:underline me-4 md:me-6">
-            Licensing
-          </a>
-        </li>
-        <li>
-          <a href="#" className="hover:underline">
-            Contact
+        <i className="fa fa-linkedin-square"></i>
+          <a href="https://www.linkedin.com/in/noah-brosseau-57537335b/" className="hover:underline me-4 md:me-6">
+            LinkedIn
           </a>
         </li>
       </ul>
